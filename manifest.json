@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Highlighters",
+  "description": "Base Level Extension",
+  "version": "1.0.2",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "notifications",
+    "alarms",
+    "action",
+    "webNavigation"
+  ],
+  "host_permissions": ["<all_urls>", "http://localhost/"],
+  "action": {
+    "default_icon": {
+      "16": "images/pen.png",
+      "24": "images/pen.png",
+      "32": "images/pen.png"
+    },
+
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentscript.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
